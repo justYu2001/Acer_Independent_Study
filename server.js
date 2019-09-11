@@ -6,12 +6,12 @@ const add_user = require('./events/add_user.js');
 const check_status = require('./events/check_status.js');
 const change_status = require('./events/change_status.js');
 const check_user = require('./events/check_user.js');
+const keep_online = require('./events/keep_online.js')
 
 var app = express();
 
 var db = mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/acer_independent_study");
 db.Promise = global.Promise;
-
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + "/" + "index.html");
@@ -23,13 +23,4 @@ add_user(app);
 check_status(app);
 change_status(app);
 check_user(app);
-
-var port = process.env.PORT || 3000;
-
-var server = app.listen(port, function () {
-
-    var host = server.address().address
-
-    console.log("Server running at http://127.0.0.1:3000", host, port)
-
-})
+keep_online(app);
