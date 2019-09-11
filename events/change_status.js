@@ -1,10 +1,11 @@
-const device = require('../data_modules/device.js');
+const Raspberry_Pi_list = require('../data_modules/Raspberry_Pi_list.js');
 
 module.exports = (app) => {
-    app.get("/device:device_id/:cmd", function (app_req, app_res) {
+    app.get("/Raspberry_Pi:Raspberry_Pi_id/device:device_id/:cmd", function (app_req, app_res) {
         if (app_req.params.cmd == "turn_on") {
-            var updatestr = { "status": true };
-            device.findByIdAndUpdate(app_req.params.device_id, updatestr, function (add_err, add_res) {
+            var wherestr = { "_id": app_req.params.Raspberry_Pi_id, "device._id": app_req.params.device_id };
+            var updatestr = { "device.$.status": true };
+            Raspberry_Pi_list.update(wherestr, updatestr, function (add_err, add_res) {
 
                 if (add_err) {
                     console.log("Error:" + add_err);
@@ -18,8 +19,9 @@ module.exports = (app) => {
             });
         }
         if (app_req.params.cmd == "turn_off") {
-            var updatestr = { "status": false };
-            device.findByIdAndUpdate(app_req.params.device_id, updatestr, function (add_err, add_res) {
+            var wherestr = { "_id": app_req.params.Raspberry_Pi_id, "device._id": app_req.params.device_id };
+            var updatestr = { "device.$.status": false };
+            Raspberry_Pi_list.update(wherestr, updatestr, function (add_err, add_res) {
 
                 if (add_err) {
                     console.log("Error:" + add_err);
