@@ -22,9 +22,10 @@ module.exports = (app) => {
             }
             else {
                 console.log("Res:" + f_res);
+                var pos = f_res[0].get("device._id").indexOf(app_req.params.device_id);
                 app_res.render('device', {
                     id: app_req.params.device_id,
-                    status: (f_res[0].get("device.status")[0] ? "開啟" : "關閉")
+                    status: (f_res[0].get("device.status")[pos] ? "開啟" : "關閉")
                 });
             }
         });
