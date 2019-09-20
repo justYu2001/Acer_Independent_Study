@@ -1,4 +1,3 @@
-var fs = require('fs');
 const Raspberry_Pi_list = require('../data_modules/Raspberry_Pi_list.js');
 
 module.exports = (app) => {
@@ -11,7 +10,12 @@ module.exports = (app) => {
             }
             else {
                 console.log("Res:" + f_res);
-                app_res.send(f_res[0].get("_id"));
+                try {
+                    app_res.send(f_res[0].get("_id"));
+                }
+                catch{
+                    app_res.send("no");
+                }
             }
         });
 
