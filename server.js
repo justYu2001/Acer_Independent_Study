@@ -6,6 +6,7 @@ const add_user = require('./events/add_user.js');
 const check_status = require('./events/check_status.js');
 const change_status = require('./events/change_status.js');
 const check_user = require('./events/check_user.js');
+const device_list = require('./events/device_list.js');
 const keep_online = require('./events/keep_online.js')
 
 var app = express();
@@ -23,4 +24,5 @@ add_user(app);
 check_status(app);
 change_status(app);
 check_user(app);
+device_list(app);
 keep_online(app);
