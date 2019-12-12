@@ -6,6 +6,8 @@ module.exports = (app,root_path) => {
         fs.readFile(filePath, function (err, content) {
             if (err) return callback(err)
             var rendered = content.toString()
+                .replace('{device_id}', options.content_id)
+                .replace('{device_status}', options.content_status)
                 .replace('{result}', options.web_result)
             return callback(null, rendered)
         })
