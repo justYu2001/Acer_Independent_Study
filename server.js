@@ -6,7 +6,7 @@ const add_user = require('./events/add_user.js');
 const check_status = require('./events/check_status.js');
 const change_status = require('./events/change_status.js');
 const check_user = require('./events/check_user.js');
-const device_list = require('./events/device_list.js');
+const devices_list = require('./events/devices_list.js');
 const keep_online = require('./events/keep_online.js')
 
 var app = express();
@@ -15,14 +15,23 @@ var db = mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/acer_i
 db.Promise = global.Promise;
 
 app.get('/', function (req, res) {
+    console.log(__dirname);
     res.sendFile(__dirname + "/" + "index.html");
+})
+
+app.get('/views/device_style.css', function (req, res) {
+    res.sendFile(__dirname + "/views/device_style.css");
+})
+
+app.get('/views/devices_list_style.css', function (req, res) {
+    res.sendFile(__dirname + "/views/devices_list_style.css");
 })
 
 add_device(app);
 add_Raspberry_PI(app);
 add_user(app);
-check_status(app);
+check_status(app,__dirname);
 change_status(app);
 check_user(app);
-device_list(app);
+devices_list(app,__dirname);
 keep_online(app);
