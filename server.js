@@ -7,7 +7,9 @@ const check_status = require('./events/check_status.js');
 const change_status = require('./events/change_status.js');
 const check_user = require('./events/check_user.js');
 const devices_list = require('./events/devices_list.js');
-const keep_online = require('./events/keep_online.js')
+const style_sheets = require('./events/style_sheets.js');
+const images = require('./events/images.js');
+const keep_online = require('./events/keep_online.js');
 
 var app = express();
 
@@ -19,14 +21,6 @@ app.get('/', function (req, res) {
     res.sendFile(__dirname + "/" + "index.html");
 })
 
-app.get('/views/device_style.css', function (req, res) {
-    res.sendFile(__dirname + "/views/device_style.css");
-})
-
-app.get('/views/devices_list_style.css', function (req, res) {
-    res.sendFile(__dirname + "/views/devices_list_style.css");
-})
-
 add_device(app);
 add_Raspberry_PI(app);
 add_user(app);
@@ -34,4 +28,6 @@ check_status(app,__dirname);
 change_status(app);
 check_user(app);
 devices_list(app,__dirname);
+style_sheets(app,__dirname);
+images(app,__dirname);
 keep_online(app);
