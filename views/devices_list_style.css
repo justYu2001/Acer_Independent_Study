@@ -1,4 +1,82 @@
-.content
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Microsoft JhengHei;
+    color: #003F91;
+    background-color: #E5F9E0;
+    font-size: 0px;
+    font-weight: bold;
+}
+
+.container
+{
+    width: 320px;
+    margin: auto;
+}
+
+.container figure
 {
     text-align: center;
+}
+
+.icon-img{
+    width: 90px;
+    border-radius: 30%;
+    margin-top: 10px;
+}
+
+figcaption
+{
+    display: none;
+}
+.title{
+    font-size: 30px;
+    text-align: center;
+}
+
+.col{
+    width: 150px;
+    padding: 2.5px;
+    margin: 2.5px;
+    display: inline-block;
+    background-color: #B2F7EF;
+}
+
+.device_id
+{
+    text-align: center;
+    font-size: 20px;
+    background-color: inherit;
+}
+
+.col img{
+    width: 100%;
+    background-color: inherit;
+}
+
+@media screen and (min-width:960px)
+{
+    .container
+    {
+        width: 960px;
+        margin: auto;
+    }
+    .col{
+        width: 300px;
+        padding: 5px;
+        margin: 5px;
+        display: inline-block;
+        background-color: #B2F7EF;
+    }
+    .device_id
+    {
+        text-align: center;
+        font-size: 30px;
+        background-color: inherit;
+    }
+
+    .number_of_devices
+    {
+        display: none;
+    }
 }

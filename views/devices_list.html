@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://acer-independent-study.herokuapp.com/views/devices_list_style.css">
+    <link rel="stylesheet" href="/views/devices_list_style.css">
     <title>裝置列表</title>
 </head>
 <body>
-    <div class="content">
+    <div class="container">
+        <figure>
+            <img src="/public/images/line_bot_icon.png" alt="" class="icon-img">
+            <figcaption>Line Bot 智慧家居icon</figcaption>
+        </figure>
+        <div class="title">您家中的裝置列表</div>
         {result}
+        <div class="number_of_devices">{number}</div>
     </div>
 </body>
 </html>
