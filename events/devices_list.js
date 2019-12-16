@@ -9,6 +9,7 @@ module.exports = (app,root_path) => {
                 .replace('{device_id}', options.content_id)
                 .replace('{device_status}', options.content_status)
                 .replace('{result}', options.web_result)
+                .replace('{number}', options.number)
             return callback(null, rendered)
         })
     })
@@ -25,13 +26,14 @@ module.exports = (app,root_path) => {
                 console.log("Res:" + f_res);
                 try {
                     var device_list = f_res[0].get("device");
-                    var result="<p>裝置列表:</p>";
+                    var result='';
                     device_list.forEach(element => {
-                        result+="<p>"+"裝置"+element.get("_id")+" 狀態:"+(element.get("status")?"開啟":"關閉")+"</p>";
+                        result+='<div class="col"><img src="'+(element.get("status")?"/public/images/radio_on.png":"/public/images/radio_off.png")+'" alt="">'+'<div class="device_id">裝置ID:'+element.get("_id")+'</div></div>';
                     });
-                    result+="<p>您的家中目前共有"+device_list.length+"個家電由 Line Bot 智慧家居控制"+"</p>"
+                    var number=device_list.length+"";
                     app_res.render('devices_list', {
-                        web_result:result
+                        web_result:result,
+                        number:number
                     });
                 }
                 catch{
