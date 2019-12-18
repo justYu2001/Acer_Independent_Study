@@ -28,7 +28,7 @@ module.exports = (app,root_path) => {
                     var device_list = f_res[0].get("device");
                     var result='';
                     device_list.forEach(element => {
-                        result+='<div class="col"><img src="'+(element.get("status")?"/public/images/radio_on.png":"/public/images/radio_off.png")+'" alt="">'+'<div class="device_id">裝置ID:'+element.get("_id")+'</div></div>';
+                        result+='<div class="col"><img src="'+(element.get("status")?"/public/images/radio_on.png":"/public/images/radio_off.png")+'" alt="">'+'<div class="device_id">裝置名稱:'+element.get("name")+'</div></div>';
                     });
                     var number=device_list.length+"";
                     app_res.render('devices_list', {
