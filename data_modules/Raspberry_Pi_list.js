@@ -5,6 +5,7 @@ const Raspberry_Pi_Schema = mongoose.Schema({
     user: Array,
     device: [{
         _id: String,
+        name: String,
         status: Boolean
     }]
 });
