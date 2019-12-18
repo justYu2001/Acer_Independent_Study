@@ -15,3 +15,5 @@ https://acer-independent-study.herokuapp.com/Raspberry_Pi+(樹莓派ID)/device+(
 https://acer-independent-study.herokuapp.com/Raspberry_Pi+(樹莓派ID)/device+(裝置ID)/turn_off
 ## 使用者的裝置列表
 https://acer-independent-study.herokuapp.com/user+(使用者LineID)/list
+## 更改裝置名稱
+https://acer-independent-study.herokuapp.com/Raspberry_Pi+(樹莓派ID)/device+(裝置ID)edit_name/(要改的名子)
