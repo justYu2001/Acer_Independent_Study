@@ -9,11 +9,12 @@ const check_user = require('./events/check_user.js');
 const devices_list = require('./events/devices_list.js');
 const style_sheets = require('./events/style_sheets.js');
 const images = require('./events/images.js');
+const edit_name = require('./events/edit_name.js');
 const keep_online = require('./events/keep_online.js');
 
 var app = express();
 
-var db = mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/acer_independent_study");
+var db = mongoose.connect(process.env.MONGODB_URI || "mongodb://heroku_fs2kfjw8:2moivalsi0mlmhalemhkd0kf02@ds117535.mlab.com:17535/heroku_fs2kfjw8"/*"mongodb://localhost/acer_independent_study"*/);
 db.Promise = global.Promise;
 
 app.get('/', function (req, res) {
@@ -27,6 +28,7 @@ add_user(app);
 check_status(app,__dirname);
 change_status(app);
 check_user(app);
+edit_name(app);
 devices_list(app,__dirname);
 style_sheets(app,__dirname);
 images(app,__dirname);

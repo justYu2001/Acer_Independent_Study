@@ -4,7 +4,7 @@ module.exports = (app) => {
 
     app.get("/Raspberry_Pi:Raspberry_Pi_id/add_device:device_id", function (app_req, app_res) {
         var wherestr = { "_id": app_req.params.Raspberry_Pi_id };
-        var updatestr = { "$push": { "device": { "_id": app_req.params.device_id, "status": false } } };
+        var updatestr = { "$push": { "device": { "_id": app_req.params.device_id,"name":"","status": false } } };
         Raspberry_Pi_list.find(wherestr, function (f_err, f_res) {
 
             if (f_err) {
