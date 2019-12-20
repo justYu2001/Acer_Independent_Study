@@ -10,9 +10,9 @@ https://acer-independent-study.herokuapp.com/user+(使用者LineID)
 ## 查看插座(裝置)狀態
 https://acer-independent-study.herokuapp.com/Raspberry_Pi+(樹莓派ID)/device+(裝置ID)
 ## 開啟插座(裝置)
-https://acer-independent-study.herokuapp.com/Raspberry_Pi+(樹莓派ID)/device_+(裝置名稱)/turn_on
+https://acer-independent-study.herokuapp.com/Raspberry_Pi+(樹莓派ID)/device+(裝置id)/turn_on
 ## 關閉插座(裝置)
-https://acer-independent-study.herokuapp.com/Raspberry_Pi+(樹莓派ID)/device_+(裝置名稱)/turn_off
+https://acer-independent-study.herokuapp.com/Raspberry_Pi+(樹莓派ID)/device+(裝置id)/turn_off
 ## 使用者的裝置列表
 https://acer-independent-study.herokuapp.com/user+(使用者LineID)/list
 ## 更改裝置名稱
