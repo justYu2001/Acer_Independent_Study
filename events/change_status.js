@@ -1,9 +1,9 @@
 const Raspberry_Pi_list = require('../data_modules/Raspberry_Pi_list.js');
 
 module.exports = (app) => {
-    app.get("/Raspberry_Pi:Raspberry_Pi_id/device_:device_name/:cmd", function (app_req, app_res) {
+    app.get("/Raspberry_Pi:Raspberry_Pi_id/device:device_id/:cmd", function (app_req, app_res) {
         if (app_req.params.cmd == "turn_on") {
-            var wherestr = { "_id": app_req.params.Raspberry_Pi_id, "device.name": app_req.params.device_name };
+            var wherestr = { "_id": app_req.params.Raspberry_Pi_id, "device._id": app_req.params.device_id };
             var updatestr = { "device.$.status": true };
             Raspberry_Pi_list.update(wherestr, updatestr, function (add_err, add_res) {
 
@@ -19,7 +19,7 @@ module.exports = (app) => {
             });
         }
         if (app_req.params.cmd == "turn_off") {
-            var wherestr = { "_id": app_req.params.Raspberry_Pi_id, "device.name": app_req.params.device_name };
+            var wherestr = { "_id": app_req.params.Raspberry_Pi_id, "device._id": app_req.params.device_id };
             var updatestr = { "device.$.status": false };
             Raspberry_Pi_list.update(wherestr, updatestr, function (add_err, add_res) {
 
